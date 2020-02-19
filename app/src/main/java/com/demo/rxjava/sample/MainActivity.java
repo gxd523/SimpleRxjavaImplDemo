@@ -13,12 +13,23 @@ import com.demo.rxjava.impl.ObservableOnSubscribe;
 import com.demo.rxjava.impl.scheduler.Schedulers;
 import com.demo.rxjava.impl.tool.Function;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadFactory;
+
 public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new Thread("new") {
+        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                return new Thread(r, "new");
+            }
+        });
+        Log.d("gxd", "MainActivity.onCreate-->" + Executors.newSingleThreadExecutor().getClass().getName());
+        scheduledExecutorService.execute(new Runnable() {
             @Override
             public void run() {
                 Observable
@@ -63,6 +74,6 @@ public class MainActivity extends Activity {
                             }
                         });
             }
-        }.start();
+        });
     }
 }
