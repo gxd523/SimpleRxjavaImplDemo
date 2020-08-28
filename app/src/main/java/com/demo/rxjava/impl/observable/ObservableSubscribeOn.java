@@ -5,6 +5,8 @@ import com.demo.rxjava.core.ObservableSource;
 import com.demo.rxjava.core.Observer;
 import com.demo.rxjava.core.Scheduler;
 
+import androidx.annotation.Nullable;
+
 /**
  * Created by guoxiaodong on 2020-02-17 13:53
  */
@@ -33,6 +35,7 @@ public class ObservableSubscribeOn<T> extends Observable<T> {
 
     private static final class SubscribeOnObserver<T> implements Observer<T>, Disposable {
         private final Observer<? super T> observer;
+        @Nullable
         private Disposable disposable;
 
         public SubscribeOnObserver(Observer<? super T> observer) {
@@ -41,12 +44,14 @@ public class ObservableSubscribeOn<T> extends Observable<T> {
 
         @Override
         public boolean isDisposed() {
-            return disposable.isDisposed();
+            return disposable != null && disposable.isDisposed();
         }
 
         @Override
         public void dispose() {
-            disposable.dispose();
+            if (disposable != null) {
+                disposable.dispose();
+            }
         }
 
         @Override
