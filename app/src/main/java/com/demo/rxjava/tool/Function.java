@@ -1,4 +1,4 @@
-package com.demo.rxjava.impl.tool;
+package com.demo.rxjava.tool;
 
 /**
  * Created by guoxiaodong on 2020-02-16 18:11

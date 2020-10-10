@@ -1,9 +1,9 @@
-package com.demo.rxjava.impl.observable;
+package com.demo.rxjava.observable;
 
 import com.demo.rxjava.core.ObservableSource;
 import com.demo.rxjava.core.Observer;
 import com.demo.rxjava.core.Scheduler;
-import com.demo.rxjava.impl.tool.Function;
+import com.demo.rxjava.tool.Function;
 
 import androidx.annotation.NonNull;
 

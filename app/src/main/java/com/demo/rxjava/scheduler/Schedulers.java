@@ -1,4 +1,4 @@
-package com.demo.rxjava.impl.scheduler;
+package com.demo.rxjava.scheduler;
 
 import com.demo.rxjava.core.Scheduler;
 

@@ -1,4 +1,4 @@
-package com.demo.rxjava.impl.scheduler;
+package com.demo.rxjava.scheduler;
 
 import android.os.Handler;
 import android.os.Looper;

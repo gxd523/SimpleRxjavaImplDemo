@@ -1,4 +1,4 @@
-package com.demo.rxjava.impl.observable;
+package com.demo.rxjava.observable;
 
 import com.demo.rxjava.core.Emitter;
 
